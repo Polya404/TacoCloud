@@ -1,6 +1,43 @@
 spring:
   thymeleaf:
     cache: false
+
+  data:
+    rest:
+      base-path: /data-api
+
   datasource:
+    url: jdbc:h2:mem:tacocloud
     generate-unique-name: false
     name: tacocloud
+    username: user
+    password: user
+    driverClassName: org.h2.Driver
+
+  main:
+    allow-bean-definition-overriding: true
+
+  h2:
+    console.enabled: true
+
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:mykeys.jks
+    key-store-password: NPoab92001
+    key-password: NPoab92001
+    key-alias: tomcat
+
+
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          facebook:
+#          clientId: <facebook client id>
+#          clientSecret: <facebook client secret>
+#          scope: email, public_profile
+
+taco:
+  orders:
+    page-size: 20
