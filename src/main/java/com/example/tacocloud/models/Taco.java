@@ -31,6 +31,13 @@ public class Taco {
     @ManyToMany
     private List<Ingredient> ingredients = new ArrayList<>();
 
+    public Taco (String name){
+        this.name = name;
+    }
+
+    public Taco (){
+    }
+
     public void addIngredient(Ingredient ingredient){
         this.ingredients.add(ingredient);
     }

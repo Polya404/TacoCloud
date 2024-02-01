@@ -6,6 +6,26 @@ spring:
     rest:
       base-path: /data-api
 
+  artemis:
+    password: test
+    user: test
+    broker-url: tcp://localhost:61616
+
+  jms:
+    template:
+      default-destination: tacocloud.order.queue
+
+  rabbitmq:
+    template:
+      exchange: tacocloud.order
+      routing-key: kitchen.central
+
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+    template:
+      default-topic: tacocloud.orders.topic
+
   datasource:
     url: jdbc:h2:mem:tacocloud
     generate-unique-name: false
@@ -38,6 +58,19 @@ server:
 #          clientSecret: <facebook client secret>
 #          scope: email, public_profile
 
+
 taco:
   orders:
     page-size: 20
+
+
+tacocloud:
+  email:
+    host: imap.tacocloud.com
+    mailbox: INBOX
+    username: taco-in-flow
+    password: secret
+    poll-rate: 10000
+
+  api:
+    url: http://localhost:8080/orders/fromEmail
